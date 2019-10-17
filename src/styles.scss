@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: 'PokemonHollow';
-  src: url('assets/fonts/PokemonHollow.ttf')  format('truetype') /* Legacy iOS */
+  src: url('assets/fonts/PokemonHollow.ttf') format('truetype') /* Legacy iOS */
 }
 
 * {
@@ -56,7 +56,15 @@ body {
   }
 }
 
-.poke-title{
+.poke-title {
   font-size: 4rem;
   font-family: 'PokemonHollow', sans-serif;
+  &:focus{
+    border: none;
+    outline: none;
+  }
+}
+
+.pointer {
+  cursor: pointer;
 }

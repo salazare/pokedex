@@ -18,12 +18,12 @@ import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
-    provider: new GoogleLoginProvider('Google-OAuth-Client-Id')
+    provider: new GoogleLoginProvider('899701878502-vl2bsm0j4cc868roir574qej4a2ussop.apps.googleusercontent.com')
   },
-  {
-    id: FacebookLoginProvider.PROVIDER_ID,
-    provider: new FacebookLoginProvider('Facebook-App-Id')
-  }
+  // {
+  //   id: FacebookLoginProvider.PROVIDER_ID,
+  //   provider: new FacebookLoginProvider('Facebook-App-Id')
+  // }
 ]);
 
 export function provideConfig() {
@@ -43,7 +43,7 @@ export function provideConfig() {
     HttpClientModule,
     AppRoutingModule,
     InfiniteScrollModule,
-    SocialLoginModule,
+    SocialLoginModule.initialize(config),
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
   providers: [

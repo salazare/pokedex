@@ -1,0 +1,22 @@
+$white: #ffffff;
+.card {
+  background: none;
+  border-radius: 1.25rem;
+  border: 1px solid $white;
+  .card-title {
+    color: $white;
+  }
+  .badge {
+    padding: 0.30em 0.7em;
+    background: rgb(255, 255, 255, 0.15);
+    border-radius: 0.4rem;
+  }
+}
+
+.bg-tw {
+  background: rgb(255, 255, 255, 0.3);
+}
+
+.poke-detail{
+  font-size: 1.2rem;
+}

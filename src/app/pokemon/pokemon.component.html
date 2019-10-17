@@ -1,5 +1,5 @@
 <div class="card" *ngIf="pokemon">
-  <div class="card-body text-center">
+  <div class="card-body text-center" (dblclick)="goToDetails()">
     <img [src]="pokemon.sprites.front_default" class="card-img-top" [alt]="pokemon.name">
     <h4 class="card-title text-capitalize">{{pokemon.name}}</h4>
     <span class="badge badge-secondary text-capitalize"

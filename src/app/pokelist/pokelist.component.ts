@@ -16,7 +16,7 @@ export class PokelistComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getPokemons(this.pokeapi.baseUrl);
+    this.getPokemons(this.pokeapi.baseUrl + 'pokemon');
   }
 
   getPokemons(url) {
