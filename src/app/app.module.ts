@@ -1,18 +1,58 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {HttpClientModule} from '@angular/common/http';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {PokemonComponent} from './pokemon/pokemon.component';
+
+import {SocialLoginModule, AuthServiceConfig} from 'angularx-social-login';
+import {GoogleLoginProvider, FacebookLoginProvider} from 'angularx-social-login';
+import {LoginComponent} from './login/login.component';
+import {PokemonDetailComponent} from './pokemon-detail/pokemon-detail.component';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {environment} from '../environments/environment';
+import {PokelistComponent} from './pokelist/pokelist.component';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
+
+let config = new AuthServiceConfig([
+  {
+    id: GoogleLoginProvider.PROVIDER_ID,
+    provider: new GoogleLoginProvider('Google-OAuth-Client-Id')
+  },
+  {
+    id: FacebookLoginProvider.PROVIDER_ID,
+    provider: new FacebookLoginProvider('Facebook-App-Id')
+  }
+]);
+
+export function provideConfig() {
+  return config;
+}
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PokemonComponent,
+    LoginComponent,
+    PokemonDetailComponent,
+    PokelistComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    InfiniteScrollModule,
+    SocialLoginModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production})
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

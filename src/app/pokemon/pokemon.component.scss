@@ -1,0 +1,23 @@
+$white: #ffffff;
+.card {
+  background: none;
+  border-radius: 1.25rem;
+  border: 1px solid $white;
+  .card-title {
+    color: $white;
+  }
+  &:hover {
+    background: rgb(255, 255, 255, 0.25);
+    .card-img-top {
+      transform: scale(1.25);
+    }
+    .card-title {
+      font-weight: bold;
+    }
+  }
+  .badge{
+    padding: 0.30em 0.7em;
+    background: rgb(255, 255, 255, 0.15);
+    border-radius: 0.4rem;
+  }
+}

@@ -1,0 +1,8 @@
+<div class="card" *ngIf="pokemon">
+  <div class="card-body text-center">
+    <img [src]="pokemon.sprites.front_default" class="card-img-top" [alt]="pokemon.name">
+    <h4 class="card-title text-capitalize">{{pokemon.name}}</h4>
+    <span class="badge badge-secondary text-capitalize"
+          *ngFor="let type of pokemon.types; let last=last;" [ngClass]="{'mr-3':!last}">{{type.type.name}}</span>
+  </div>
+</div>

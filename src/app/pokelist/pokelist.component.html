@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-sm-6 col-md-4 col-lg-3 mb-3" *ngFor="let item of list">
+    <app-pokemon [pokeUrl]="item.url"></app-pokemon>
+  </div>
+  <div class="col-12 text-center" *ngIf="loading">
+    <div class="spinner-grow text-danger" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+  <div infiniteScroll [infiniteScrollDistance]="0" (scrolled)="loadMore()">
+  </div>
+</div>
